@@ -112,7 +112,7 @@ function createParticleSystem() {
     {
       time: { type: "f", value: 1.0 },
       texture: { type: "t", value: fire },
-      radius: { type: "f", value: 1.6 },
+      radius: { type: "f", value: 1.2 },
       light: { type: "v3", value: [1.0, 2.0, 6.0] },
       highlight: { type: "v3", value: [0.0, 0.0, 0.0] },
       shadow: { type: "v3", value: [0.0, 0.0, 1.0] },
