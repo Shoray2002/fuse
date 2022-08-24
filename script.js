@@ -2,6 +2,7 @@ var thumbnails = document.getElementById("thumbnails");
 var imgs = thumbnails.getElementsByTagName("img");
 var main = document.getElementById("images");
 var counter = 0;
+var loader = document.querySelector(".loader");
 
 for (let i = 0; i < imgs.length; i++) {
   let img = imgs[i];
@@ -208,11 +209,14 @@ function createParticleSystem() {
   }
 
   function _handleImageLoaded() {
-    if (!this.$img.classList.contains("loaded")) {
-      this.$img.classList.add("loaded");
-      let next = document.querySelector(".result");
-      next.scrollIntoView({ behavior: "smooth" });
-      main.src = this.$img.src;
+    this.$img.classList.add("loaded");
+    let next = document.querySelector(".result");
+    next.scrollIntoView({ behavior: "smooth" });
+    loader.style.display = "none";
+    main.src = this.$img.src;
+    main.style.filter = "blur(0px)";
+    for (let i = 0; i < imgs.length; i++) {
+      imgs[i].style.filter = "blur(0px)";
     }
   }
 
