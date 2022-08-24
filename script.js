@@ -3,6 +3,9 @@ var imgs = thumbnails.getElementsByTagName("img");
 var main = document.getElementById("images");
 var counter = 0;
 var loader = document.querySelector(".loader");
+var text_input = document.querySelector(".text");
+var loaded = false;
+var c_main = document.querySelector(".c-main");
 
 for (let i = 0; i < imgs.length; i++) {
   let img = imgs[i];
@@ -209,17 +212,23 @@ function createParticleSystem() {
   }
 
   function _handleImageLoaded() {
-    this.$img.classList.add("loaded");
-    let next = document.querySelector(".result");
-    next.scrollIntoView({ behavior: "smooth" });
-    loader.style.display = "none";
-    main.src = this.$img.src;
-    main.style.filter = "blur(0px)";
-    for (let i = 0; i < imgs.length; i++) {
-      imgs[i].style.filter = "blur(0px)";
+    console.log(text_input.value);
+    if (text_input.value) {
+      c_main.style.overflow = "scroll";
+      this.$img.classList.add("loaded");
+      let next = document.querySelector(".result");
+      next.scrollIntoView({ behavior: "smooth" });
+      loader.style.display = "none";
+      main.src = this.$img.src;
+      main.style.filter = "blur(0px)";
+      for (let i = 0; i < imgs.length; i++) {
+        imgs[i].style.filter = "blur(0px)";
+      }
+      loaded = true;
+    } else {
+      alert("Please enter a text first");
     }
   }
-
   function _handleInputChange(e) {
     var file = undefined !== e ? e.target.files[0] : this.$img.files[0];
 
