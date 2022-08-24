@@ -112,7 +112,7 @@ function createParticleSystem() {
     {
       time: { type: "f", value: 1.0 },
       texture: { type: "t", value: fire },
-      radius: { type: "f", value: 1.2 },
+      radius: { type: "f", value: 1.15 },
       light: { type: "v3", value: [1.0, 2.0, 6.0] },
       highlight: { type: "v3", value: [0.0, 0.0, 0.0] },
       shadow: { type: "v3", value: [0.0, 0.0, 1.0] },
@@ -233,3 +233,15 @@ function createParticleSystem() {
 })();
 
 new FileUploader(".uploader");
+
+var thumbnails = document.getElementById("thumbnails");
+var imgs = thumbnails.getElementsByTagName("img");
+var main = document.getElementById("images");
+var counter = 0;
+
+for (let i = 0; i < imgs.length; i++) {
+  let img = imgs[i];
+  img.addEventListener("click", function () {
+    main.src = this.src;
+  });
+}
