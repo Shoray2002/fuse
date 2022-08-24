@@ -198,6 +198,9 @@ function createParticleSystem() {
   function _handleImageLoaded() {
     if (!this.$img.classList.contains("loaded")) {
       this.$img.classList.add("loaded");
+      console.log("image loaded");
+      let next = document.querySelector(".result");
+      next.scrollIntoView({ behavior: "smooth" });
     }
   }
 
