@@ -1,3 +1,15 @@
+var thumbnails = document.getElementById("thumbnails");
+var imgs = thumbnails.getElementsByTagName("img");
+var main = document.getElementById("images");
+var counter = 0;
+
+for (let i = 0; i < imgs.length; i++) {
+  let img = imgs[i];
+  img.addEventListener("click", function () {
+    main.src = this.src;
+  });
+}
+
 (function () {
   let scene = new THREE.Scene();
   let camera = new THREE.PerspectiveCamera(
@@ -198,9 +210,9 @@ function createParticleSystem() {
   function _handleImageLoaded() {
     if (!this.$img.classList.contains("loaded")) {
       this.$img.classList.add("loaded");
-      console.log("image loaded");
       let next = document.querySelector(".result");
       next.scrollIntoView({ behavior: "smooth" });
+      main.src = this.$img.src;
     }
   }
 
@@ -233,15 +245,3 @@ function createParticleSystem() {
 })();
 
 new FileUploader(".uploader");
-
-var thumbnails = document.getElementById("thumbnails");
-var imgs = thumbnails.getElementsByTagName("img");
-var main = document.getElementById("images");
-var counter = 0;
-
-for (let i = 0; i < imgs.length; i++) {
-  let img = imgs[i];
-  img.addEventListener("click", function () {
-    main.src = this.src;
-  });
-}
