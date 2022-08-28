@@ -50,7 +50,7 @@ body {
 @media only screen and (max-width: 1200px) {
 
   /*Tablets [601px -> 1200px]*/
-  .search-box {
+  .dropdown {
     max-width: 400px;
   }
 }
@@ -72,7 +72,7 @@ body {
   }
 }
 
-.search-box {
+.dropdown {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -84,7 +84,7 @@ body {
   margin-bottom: 40px;
 }
 
-.search-box input {
+.dropdown input {
   display: block;
   appearance: none;
   outline: none;
@@ -94,7 +94,7 @@ body {
   font-size: 20px;
 }
 
-.search-box:focus-within {
+.dropdown:focus-within {
   box-shadow: 3px 3px 6px rgba(0, 0, 0, 0.2);
   transform: translateY(-5px);
 }
@@ -306,25 +306,51 @@ body {
 
 
 @media only screen and (max-width: 1200px) {
-  .search-box {
+  .dropdown {
     max-width: 400px;
   }
 }
 
 
 @media only screen and (max-width: 600px) {
-  .search-box {
+  .dropdown {
     max-width: 350px;
   }
 }
 
 @media only screen and (max-width: 425px) {
-  .search-box {
+  .dropdown {
     max-width: 200px;
 
   }
 
-  .search-box input {
+  .dropdown input {
     font-size: 15px;
   }
+}
+
+
+
+p {
+  color: #fff;
+  margin-bottom: 0.5rem;
+  font-size: 1.4rem;
+  text-align: center
+}
+
+select {
+  width: 350px;
+  outline: none;
+  border: 1px solid #fff;
+  padding: 1rem;
+  font-size: 1.1rem;
+  border-radius: 0.5rem;
+  box-shadow: 0 1px 4px rgb(146 161 176 / 15%);
+  cursor: pointer;
+}
+
+select:focus,
+select:hover {
+  outline: none;
+  border: 1px solid rgba(0, 0, 0, 0.329);
 }

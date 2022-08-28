@@ -3,7 +3,7 @@ var imgs = thumbnails.getElementsByTagName("img");
 var main = document.getElementById("images");
 var counter = 0;
 var loader = document.querySelector(".loader");
-var text_input = document.querySelector(".text");
+var menu = document.querySelector("#menu-items");
 var loaded = false;
 var c_main = document.querySelector(".c-main");
 
@@ -212,22 +212,55 @@ function createParticleSystem() {
   }
 
   function _handleImageLoaded() {
-    console.log(text_input.value);
-    if (text_input.value) {
-      c_main.style.overflow = "scroll";
-      this.$img.classList.add("loaded");
-      let next = document.querySelector(".result");
-      next.scrollIntoView({ behavior: "smooth" });
-      loader.style.display = "none";
-      main.src = this.$img.src;
-      main.style.filter = "blur(0px)";
-      for (let i = 0; i < imgs.length; i++) {
-        imgs[i].style.filter = "blur(0px)";
-      }
-      loaded = true;
-    } else {
-      alert("Please enter a text first");
+    file = this.$img.src;
+    human_model = menu.value;
+    console.log(human_model);
+    console.log(file);
+
+    fetch("https://vatsal2473-1v9q8my6wf535yix.socketxp.com/file-upload", {
+      Method: "POST",
+      Headers: {
+        Accept: "application.json",
+        "Content-Type": "application/json",
+      },
+      Body: JSON.stringify({
+        file: file,
+        human_model: human_model,
+      }),
+      Cache: "default",
+    })
+      .then(function (response) {
+        return response.json();
+      })
+      .then(function (data) {
+        console.log(data);
+      })
+      .catch((error) => console.error("Error:", error));
+
+    // $.ajax({
+    //   url: "https://vatsal2473-1v9q8my6wf535yix.socketxp.com/file-upload",
+    //   type: "POST",
+    //   data: {
+    //     file: file,
+    //     human_model: human_model,
+    //   },
+    //   success: function (data) {
+    //     console.log(data);
+    //   },
+    // });
+
+    c_main.style.overflow = "scroll";
+    this.$img.classList.add("loaded");
+    let next = document.querySelector(".result");
+    next.scrollIntoView({ behavior: "smooth" });
+    loader.style.display = "none";
+    main.src = this.$img.src;
+    main.style.filter = "blur(0px)";
+    for (let i = 0; i < imgs.length; i++) {
+      imgs[i].style.filter = "blur(0px)";
     }
+
+    loaded = true;
   }
   function _handleInputChange(e) {
     var file = undefined !== e ? e.target.files[0] : this.$img.files[0];
