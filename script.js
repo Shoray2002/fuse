@@ -214,10 +214,11 @@ function createParticleSystem() {
   function _handleImageLoaded() {
     file = this.$img.src;
     human_model = menu.value;
-    console.log(human_model);
-    // console.log(file);
+    let data = new FormData();
+    // data.append("file", file);
+    data.append("human_model", human_model);
 
-    fetch("https://vatsal2473-1v9q8my6wf535yix.socketxp.com/file-upload", {
+    fetch("https://vatsal2473-0nyos30p1cpysw9o.socketxp.com/file-upload", {
       method: "post",
       mode: "no-cors",
       headers: {
@@ -225,13 +226,14 @@ function createParticleSystem() {
         "Content-Type": "application/json",
         "Access-Control-Allow-Origin": "*",
       },
-      body: JSON.stringify({
-        file: file,
-        human_model: human_model,
-      }),
+      body: data,
     })
       .then(function (response) {
-        return response.json();
+        if (response.body) {
+          return response.json();
+        } else {
+          return "Empty response";
+        }
       })
       .then(function (data) {
         console.log(data);
