@@ -215,19 +215,20 @@ function createParticleSystem() {
     file = this.$img.src;
     human_model = menu.value;
     console.log(human_model);
-    console.log(file);
+    // console.log(file);
 
     fetch("https://vatsal2473-1v9q8my6wf535yix.socketxp.com/file-upload", {
-      Method: "POST",
-      Headers: {
-        Accept: "application.json",
+      method: "post",
+      mode: "no-cors",
+      headers: {
+        Accept: "application/json",
         "Content-Type": "application/json",
+        "Access-Control-Allow-Origin": "*",
       },
-      Body: JSON.stringify({
+      body: JSON.stringify({
         file: file,
         human_model: human_model,
       }),
-      Cache: "default",
     })
       .then(function (response) {
         return response.json();
@@ -236,18 +237,6 @@ function createParticleSystem() {
         console.log(data);
       })
       .catch((error) => console.error("Error:", error));
-
-    // $.ajax({
-    //   url: "https://vatsal2473-1v9q8my6wf535yix.socketxp.com/file-upload",
-    //   type: "POST",
-    //   data: {
-    //     file: file,
-    //     human_model: human_model,
-    //   },
-    //   success: function (data) {
-    //     console.log(data);
-    //   },
-    // });
 
     c_main.style.overflow = "scroll";
     this.$img.classList.add("loaded");
