@@ -215,7 +215,7 @@ function createParticleSystem() {
     file = this.$img.src;
     human_model = menu.value;
     let data = new FormData();
-    // data.append("file", file);
+    data.append("file", file);
     data.append("human_model", human_model);
 
     fetch("https://vatsal2473-0nyos30p1cpysw9o.socketxp.com/file-upload", {
