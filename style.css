@@ -173,10 +173,6 @@ body {
   z-index: -1;
 }
 
-.uploader img.loaded {
-  opacity: 1;
-}
-
 .c-main {
   padding: 0;
   margin: 0;
@@ -186,6 +182,11 @@ body {
   scroll-snap-points-y: repeat(100vh);
   scroll-snap-type: y mandatory;
   overflow: hidden;
+}
+
+
+.uploader img.loaded {
+  opacity: 1;
 }
 
 
