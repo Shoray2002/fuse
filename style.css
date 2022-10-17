@@ -173,10 +173,6 @@ body {
   z-index: -1;
 }
 
-.uploader img.loaded {
-  opacity: 1;
-}
-
 .c-main {
   padding: 0;
   margin: 0;
@@ -188,21 +184,11 @@ body {
   overflow: hidden;
 }
 
-.c-section {
-  width: 100%;
-  height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  scroll-snap-align: center;
+
+.uploader img.loaded {
+  opacity: 1;
 }
 
-.c-section--1 {
-  background-color: #16161d;
-  width: 100%;
-  height: 100%;
-  position: relative;
-}
 
 .result {
   background-color: #16161d;
@@ -226,6 +212,22 @@ body {
   cursor: pointer;
   filter: blur(5px);
 
+}
+
+.c-section {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  scroll-snap-align: center;
+}
+
+.c-section--1 {
+  background-color: #16161d;
+  width: 100%;
+  height: 100%;
+  position: relative;
 }
 
 @media only screen and (max-width: 480px) {
