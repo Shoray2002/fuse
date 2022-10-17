@@ -13,6 +13,10 @@ body {
 }
 
 .titling {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 4em;
   color: #EEE;
   z-index: +100;
   position: absolute;
@@ -21,10 +25,6 @@ body {
   font-family: 'Montserrat';
   height: 100%;
   width: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 4em;
   font-weight: 300;
   mix-blend-mode: hard-light;
   flex-direction: column;
