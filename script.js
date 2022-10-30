@@ -1,3 +1,20 @@
+var thumbnails = document.getElementById("thumbnails");
+var imgs = thumbnails.getElementsByTagName("img");
+var menu = document.querySelector("#menu-items");
+var loaded = false;
+var c_main = document.querySelector(".c-main");
+var main = document.getElementById("images");
+var counter = 0;
+var loader = document.querySelector(".loader");
+
+
+
+for (let i = 0; i < imgs.length; i++) {
+  let img = imgs[i];
+  img.addEventListener("click", function () {
+    main.src = this.src;
+  });
+}
 
 
 (function () {
@@ -270,18 +287,3 @@ function createParticleSystem() {
 new FileUploader(".uploader");
 
 
-var thumbnails = document.getElementById("thumbnails");
-var imgs = thumbnails.getElementsByTagName("img");
-var menu = document.querySelector("#menu-items");
-var loaded = false;
-var c_main = document.querySelector(".c-main");
-var main = document.getElementById("images");
-var counter = 0;
-var loader = document.querySelector(".loader");
-
-for (let i = 0; i < imgs.length; i++) {
-  let img = imgs[i];
-  img.addEventListener("click", function () {
-    main.src = this.src;
-  });
-}
