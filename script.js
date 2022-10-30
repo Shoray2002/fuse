@@ -8,6 +8,15 @@ var counter = 0;
 var loader = document.querySelector(".loader");
 
 
+
+for (let i = 0; i < imgs.length; i++) {
+  let img = imgs[i];
+  img.addEventListener("click", function () {
+    main.src = this.src;
+  });
+}
+
+
 (function () {
   let scene = new THREE.Scene();
   let camera = new THREE.PerspectiveCamera(
@@ -278,10 +287,3 @@ function createParticleSystem() {
 new FileUploader(".uploader");
 
 
-
-for (let i = 0; i < imgs.length; i++) {
-  let img = imgs[i];
-  img.addEventListener("click", function () {
-    main.src = this.src;
-  });
-}
