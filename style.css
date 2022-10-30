@@ -1,16 +1,6 @@
 @import url('https://fonts.googleapis.com/css?family=Montserrat:300,600');
 
-::-webkit-scrollbar {
-  width: 0px;
-}
 
-body {
-  margin: 0;
-  background: #16161d;
-  -ms-overflow-style: none;
-  scrollbar-width: none;
-  overflow: hidden;
-}
 
 .titling {
   display: flex;
@@ -29,6 +19,18 @@ body {
   mix-blend-mode: hard-light;
   flex-direction: column;
   text-align: center;
+}
+
+::-webkit-scrollbar {
+  width: 0px;
+}
+
+body {
+  margin: 0;
+  background: #16161d;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+  overflow: hidden;
 }
 
 .titling>span:first-child {
